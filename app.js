@@ -5,23 +5,26 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require('mongoose')
 require('dotenv').config()
+var multer=require('multer')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var categoryRouter = require('./routes/ivnCategory');
 
+var categoryRouter= require('./routes/Category')
 var app = express();
 // database connectivity
 
 // Set up default mongoose connection
 const mongoDB = "mongodb+srv://sehaj:Run6692323@cluster0.nhtitzt.mongodb.net/?retryWrites=true&w=majority";
+console.log("hi")
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
   console.log("con")
 })
 
+
 // Get the default connection
 
-
+console.log("hello")
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -34,7 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/invCategory',categoryRouter)
+
+app.use("/Category", categoryRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

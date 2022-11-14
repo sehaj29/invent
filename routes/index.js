@@ -5,8 +5,9 @@ var item=require('../models/item')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect("/ivnCategory")
-  
-});
+  res.render("index",{ title:"grocories"})
  
+});
+
+
 module.exports = router;
