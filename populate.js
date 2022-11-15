@@ -6,11 +6,25 @@ if (!userArgs[0].startsWith('mongodb')) {
     return
 }
 */
+
 var async = require("async");
 var Category = require("./models/category");
 var Item = require("./models/item");
 
 var mongoose = require("mongoose");
+
+
+var fs = require('fs');
+var async = require("async");
+var Category = require("./models/category");
+var Item = require("./models/item");
+var express=require("express")
+var app=express()
+app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+
 var mongoDB = userArgs[0];
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
@@ -40,6 +54,8 @@ function itemCreate(
   category,
   price,
   stockQuantity,
+  src,
+
   cb
 ) {
   itemDetail = {
@@ -47,7 +63,8 @@ function itemCreate(
     description: description,
     category: category,
     price: price,
-   stockQuantity:stockQuantity
+   stockQuantity:stockQuantity,
+   src:src
   };
 
   var item = new Item(itemDetail);
@@ -73,7 +90,8 @@ function createCategories(cb) {
           callback
         );
       },
-    
+
+
       
     ],
     // optional callback
@@ -91,10 +109,16 @@ function createitems(cb) {
           categories[0],
           60,
           40,
+
           callback
         );
       },
-   
+          "https://th.bing.com/th/id/R.6afc61b50abea45a2e6c68eae2c217ba?rik=L2W0YWncfjZBVA&riu=http%3a%2f%2fwww.shutterstock.com%2fblog%2fwp-content%2fuploads%2fsites%2f5%2f2016%2f03%2ffall-trees-road-1.jpg&ehk=KA%2bzFrmYoWsdK4k7v%2fgfNkd1T2rdnNtpF5ICdLIxAeM%3d&risl=&pid=ImgRaw&r=0",
+          callback
+        );
+      },
+     
+>>>>>>> 606bdae0089ccd7fb95f3ba23cddf08e35629706
       
     ],
     // optional callback

@@ -15,6 +15,7 @@ var app = express();
 // database connectivity
 
 // Set up default mongoose connection
+
 const mongoDB = "mongodb+srv://sehaj:Run6692323@cluster0.nhtitzt.mongodb.net/?retryWrites=true&w=majority";
 console.log("hi")
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{

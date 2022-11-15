@@ -23,7 +23,7 @@ exports.getById = function (id) {
             resolve(data)
         }).catch((error) => {
             resolve("error")
-        })
+        }) 
     })
     
         

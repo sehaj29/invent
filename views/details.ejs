@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('header') -%>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="weapon">
+        <img src="<%=item.src%>"width="200" height="200"/>
+    </div>
+    <div><%= item.name %></div>
+    <div><%= item.description%></div>
+    <div><%= item.price %></div>
+    <div><%= item.stockQuantity %></div>
+    <div>
+        <a href="<%= item.url %> + /delete">delete</a>
+    </div>
+         
+    
+         
+         
+    
+        
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('header') -%>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% for(var i = 0; i < item.length; i++) {%>
+      <li class="weapon"><a href=<%= item[i].url %>><%= item[i].name %></a></li> 
+        <li><img src="<%=item[i].src%>"/></li> 
+      <% } %>
+    
+    
+  </body>
+</html>

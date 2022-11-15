@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%- include('header') -%>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="/Category/createItem">create</a>
+    <% for(var i = 0; i < category.length; i++) {%>
+      <li class="weapon"><a href=<%= category[i].url %>><%= category[i].name %></a></li> 
+    <% } %>
+
+ 
     
   </body>
 </html>
